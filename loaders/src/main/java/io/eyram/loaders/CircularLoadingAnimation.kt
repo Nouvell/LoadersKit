@@ -5,6 +5,7 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -15,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,22 +28,23 @@ fun Arc(
     startAngle: Float = 0F,
     sweepAngle: Float = 18F,
     strokeWidth: Float = 20F,
-    size: Float = with(LocalDensity.current) {
-        MIN_ARC_SIZE.toPx() - strokeWidth
-    },
+    size: Dp = DEFAULT_MIN_ARC_SIZE
 ) {
+    val sizeInFloat = with(LocalDensity.current) {
+        size.toPx() - strokeWidth
+    }
 
-    Canvas(modifier = modifier.defaultMinSize(MIN_ARC_SIZE, MIN_ARC_SIZE)) {
+    Canvas(modifier = modifier.size(size)) {
         val canvasSize = this.size
-        val offsetX = (canvasSize.width - size) / 2
-        val offsetY = (canvasSize.height - size) / 2
+        val offsetX = (canvasSize.width - sizeInFloat) / 2
+        val offsetY = (canvasSize.height - sizeInFloat) / 2
 
         drawArc(
             color = color,
             useCenter = false,
             startAngle = startAngle,
             sweepAngle = sweepAngle,
-            size = Size(size, size),
+            size = Size(sizeInFloat, sizeInFloat),
             topLeft = Offset(offsetX, offsetY),
             style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
         )
@@ -82,4 +85,4 @@ fun CircularLoadingAnimation() {
 }
 
 
-val MIN_ARC_SIZE = 200.dp
+val DEFAULT_MIN_ARC_SIZE = 200.dp
