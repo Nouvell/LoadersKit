@@ -4,7 +4,6 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -22,42 +21,23 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
-fun Arc(
+fun CircularLoadingAnimation(
     modifier: Modifier = Modifier,
     color: Color = Color.White,
-    startAngle: Float = 0F,
-    sweepAngle: Float = 18F,
+    size: Dp = DEFAULT_MIN_ARC_SIZE,
     strokeWidth: Float = 20F,
-    size: Dp = DEFAULT_MIN_ARC_SIZE
 ) {
-    val sizeInFloat = with(LocalDensity.current) {
-        size.toPx() - strokeWidth
-    }
-
-    Canvas(modifier = modifier.size(size)) {
-        val canvasSize = this.size
-        val offsetX = (canvasSize.width - sizeInFloat) / 2
-        val offsetY = (canvasSize.height - sizeInFloat) / 2
-
-        drawArc(
-            color = color,
-            useCenter = false,
-            startAngle = startAngle,
-            sweepAngle = sweepAngle,
-            size = Size(sizeInFloat, sizeInFloat),
-            topLeft = Offset(offsetX, offsetY),
-            style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
-        )
-    }
-}
-
-@Composable
-fun CircularLoadingAnimation() {
     val startAngle = remember { Animatable(0F) }
     val sweepAngle = remember { Animatable(18F) }
 
     /** Thinking of exposing the size as a dp to the user and I can just convert them to float myself*/
-    Arc(startAngle = startAngle.value, sweepAngle = sweepAngle.value)
+    Arc(
+        size = size,
+        color = color,
+        strokeWidth = strokeWidth,
+        startAngle = startAngle.value,
+        sweepAngle = sweepAngle.value,
+    )
 
     LaunchedEffect(Unit) {
         fun tweenSpec(durationMillis: Int = 250) =
@@ -84,5 +64,34 @@ fun CircularLoadingAnimation() {
     }
 }
 
+
+@Composable
+fun Arc(
+    size: Dp,
+    color: Color,
+    startAngle: Float,
+    sweepAngle: Float,
+    strokeWidth: Float,
+) {
+    val sizeInFloat = with(LocalDensity.current) {
+        size.toPx() - strokeWidth
+    }
+
+    Canvas(modifier = Modifier.size(size)) {
+        val canvasSize = this.size
+        val offsetX = (canvasSize.width - sizeInFloat) / 2
+        val offsetY = (canvasSize.height - sizeInFloat) / 2
+
+        drawArc(
+            color = color,
+            useCenter = false,
+            startAngle = startAngle,
+            sweepAngle = sweepAngle,
+            size = Size(sizeInFloat, sizeInFloat),
+            topLeft = Offset(offsetX, offsetY),
+            style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+        )
+    }
+}
 
 val DEFAULT_MIN_ARC_SIZE = 200.dp
