@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import io.eyram.loaders.CircularLoadingAnimation
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,10 +35,10 @@ fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = false)
 @Composable
 fun DefaultPreview() {
     LoadersKitTheme {
-        Greeting("Android")
+        CircularLoadingAnimation()
     }
 }

@@ -1,12 +1,10 @@
-package io.eyram.loaderskit
+package io.eyram.loaders
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -17,9 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -87,12 +83,3 @@ fun CircularLoadingAnimation() {
 
 
 val MIN_ARC_SIZE = 200.dp
-
-
-@Preview
-@Composable
-fun CircularLoadingAnimationPreview() {
-    LoadersKitTheme() {
-        CircularLoadingAnimation()
-    }
-}
