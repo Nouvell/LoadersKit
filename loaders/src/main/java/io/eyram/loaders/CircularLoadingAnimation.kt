@@ -2,6 +2,8 @@ package io.eyram.loaders
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.size
@@ -31,6 +33,7 @@ fun CircularLoadingAnimation(
     val sweepAngle = remember { Animatable(18F) }
 
     /** Thinking of exposing the size as a dp to the user and I can just convert them to float myself*/
+    /*Try exposing the stroke cap as well*/
     Arc(
         size = size,
         color = color,
@@ -40,26 +43,37 @@ fun CircularLoadingAnimation(
     )
 
     LaunchedEffect(Unit) {
-        fun tweenSpec(durationMillis: Int = 250) =
-            tween<Float>(durationMillis = durationMillis, delayMillis = 1, LinearEasing)
 
-        /**Using DelayMillis makes the animation lose sync (see)[https://touchlab.co/jetpack-compose-animations-state-change/]*/
         launch {
-            while (true) {
-                startAngle.apply {
-                    animateTo(targetValue = 240F, animationSpec = tweenSpec(500))
-                    animateTo(targetValue = 360F, animationSpec = tweenSpec(500))
-                    snapTo(0F)
-                }
-            }
+            startAngle.animateTo(
+                targetValue = 0F,
+                animationSpec = infiniteRepeatable(
+                    animation = keyframes {
+                        durationMillis = 1004
+                        0F at 1
+                        (-120F).toComposeRotation() at 251
+                        (-120F).toComposeRotation() at 252
+                        (120F).toComposeRotation() at 502
+                        (120F).toComposeRotation() at 503
+                        360F at 1003
+                        360F at 1004
+                    }
+                )
+            )
         }
 
         launch {
-            while (true) {
-                sweepAngle.animateTo(targetValue = 72F, animationSpec = tweenSpec())
-                delay(250)
-                sweepAngle.animateTo(targetValue = 18F, animationSpec = tweenSpec(500))
-            }
+            sweepAngle.animateTo(targetValue = 72F,
+                animationSpec = infiniteRepeatable(
+                    animation = keyframes {
+                        durationMillis = 1004
+                        18F at 1
+                        72F at 252
+                        72F at 503
+                        18F at 1004
+                    }
+                )
+            )
         }
     }
 }
