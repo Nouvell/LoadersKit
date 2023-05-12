@@ -105,4 +105,4 @@ fun Arc(
     }
 }
 
-val DEFAULT_MIN_ARC_SIZE = 200.dp
+val DEFAULT_MIN_ARC_SIZE = 48.dp
