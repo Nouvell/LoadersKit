@@ -1,10 +1,8 @@
 package io.eyram.loaders
 
 import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -19,7 +17,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
@@ -51,10 +48,10 @@ fun CircularLoadingAnimation(
                     animation = keyframes {
                         durationMillis = 1004
                         0F at 1
-                        (-120F).toComposeRotation() at 251
-                        (-120F).toComposeRotation() at 252
-                        (120F).toComposeRotation() at 502
-                        (120F).toComposeRotation() at 503
+                        (-120F).toComposeAngle() at 251
+                        (-120F).toComposeAngle() at 252
+                        (120F).toComposeAngle() at 502
+                        (120F).toComposeAngle() at 503
                         360F at 1003
                         360F at 1004
                     }
