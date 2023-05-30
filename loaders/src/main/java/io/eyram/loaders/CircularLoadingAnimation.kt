@@ -60,7 +60,8 @@ fun CircularLoadingAnimation(
         }
 
         launch {
-            sweepAngle.animateTo(targetValue = 72F,
+            sweepAngle.animateTo(
+                targetValue = 72F,
                 animationSpec = infiniteRepeatable(
                     animation = keyframes {
                         durationMillis = 1004
