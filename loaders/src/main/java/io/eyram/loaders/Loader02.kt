@@ -33,7 +33,6 @@ fun Loader02(
     val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val particleSize = remember { 40f }
-    val spacing = remember { 0.001f }
 
     val particleRotation by transition.animateFloat(
         initialValue = 0f,
@@ -96,6 +95,8 @@ fun Loader02(
     )
 
     val particleOffsetList = remember {
+        val spacing = 0.001f
+
         listOf(
             Offset(-(particleSize + spacing), -(particleSize + spacing)),
             Offset(spacing, -(particleSize + spacing)),
@@ -121,7 +122,7 @@ fun Loader02(
 //        )
 
         rotate(canvasRotation) {
-            val particleOffset = (center.y - particleSize) * particleOffsetFraction
+            val particleOffset = 50f * particleOffsetFraction
 
             translate(center.x, center.y) {
                 particleOffsetList.forEachIndexed { _, offset ->
