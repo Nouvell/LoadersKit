@@ -1,4 +1,4 @@
-package io.eyram.loaders
+package io.eyram.loaders.util
 
 
 /**

@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import io.eyram.loaders.util.toComposeAngle
 import kotlinx.coroutines.launch
 
 @Composable
@@ -60,7 +61,8 @@ fun CircularLoadingAnimation(
         }
 
         launch {
-            sweepAngle.animateTo(targetValue = 72F,
+            sweepAngle.animateTo(
+                targetValue = 72F,
                 animationSpec = infiniteRepeatable(
                     animation = keyframes {
                         durationMillis = 1004
