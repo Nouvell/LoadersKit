@@ -3,16 +3,20 @@ package io.eyram.loaderskit
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import io.eyram.loaders.CircularLoadingAnimation
+import io.eyram.loaders.Loader02
+import io.eyram.loaders.Loader04
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,33 +24,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LoadersKitTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.White),
                 ) {
-                    Greeting("Android")
-                    CircularProgressIndicator()
+                    item {
+                        CircularLoadingAnimation()
+                    }
+
+                    item {
+                        Loader02(Modifier.size(100.dp))
+                    }
+
+                    item{
+                        Loader04(Modifier.size(72.dp))
+                    }
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = false)
-            @Composable
-fun DefaultPreview() {
-    LoadersKitTheme {
-        LazyColumn() {
-
-            item {
-                CircularLoadingAnimation()
-            }
-        }
-    }
-}
