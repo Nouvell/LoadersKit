@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,6 +15,7 @@ import io.eyram.loaders.Loader01
 import io.eyram.loaders.Loader02
 import io.eyram.loaders.Loader04
 import io.eyram.loaders.Loader09
+import io.eyram.loaders.util.Loader10
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,6 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .fillMaxSize()
                         .background(Color.White),
+                    contentPadding = PaddingValues(24.dp)
                 ) {
                     item {
                         Loader01()
@@ -39,7 +42,11 @@ class MainActivity : ComponentActivity() {
                     }
 
                     item{
-                        Loader09(Modifier.size(32.dp))
+                        Loader09()
+                    }
+
+                    item{
+                        Loader10()
                     }
                 }
             }
