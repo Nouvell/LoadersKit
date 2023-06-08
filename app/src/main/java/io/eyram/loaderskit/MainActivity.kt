@@ -7,16 +7,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.eyram.loaders.CircularLoadingAnimation
+import io.eyram.loaders.Loader01
 import io.eyram.loaders.Loader02
 import io.eyram.loaders.Loader04
+import io.eyram.loaders.Loader09
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,15 +27,19 @@ class MainActivity : ComponentActivity() {
                         .background(Color.White),
                 ) {
                     item {
-                        CircularLoadingAnimation()
+                        Loader01()
                     }
+//
+//                    item {
+//                        Loader02()
+//                    }
 
-                    item {
-                        Loader02(Modifier.size(100.dp))
+                    item{
+                        Loader04()
                     }
 
                     item{
-                        Loader04(Modifier.size(72.dp))
+                        Loader09(Modifier.size(32.dp))
                     }
                 }
             }

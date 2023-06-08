@@ -3,6 +3,7 @@ package io.eyram.loaders
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.EaseOut
 import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.VectorConverter
 import androidx.compose.animation.core.animateValue
 import androidx.compose.animation.core.infiniteRepeatable
@@ -21,40 +22,37 @@ import io.eyram.loaders.util.Dimens
 import io.eyram.loaders.util.calculatePlotPoint
 
 @Composable
-fun Loader04(
+fun Loader09(
     modifier: Modifier = Modifier,
     color: LoaderColor = LoaderColor.Rainbow,
 ) {
     val colorList = remember(color) { color.getColors() }
     val transition = rememberInfiniteTransition()
 
-    val initDegreeAngle = List(5) { 270F }
-
-    val animatedValues = initDegreeAngle.mapIndexed { index, initPosition ->
-        val secPosition = initPosition - (index * 22.5F)
-        transition.animateValue(
-            initialValue = initPosition,
-            targetValue = 90F,
+    val animatedAnglesOfRotation = listOf(120F, 140F, 160F, 182F, 210F).map { initAngle ->
+        val animatedRotation = transition.animateValue(
+            initialValue = 0F,
+            targetValue = 360F,
             typeConverter = Float.VectorConverter,
             animationSpec = infiniteRepeatable(
                 animation = keyframes {
                     durationMillis = animationTime
-                    initPosition atFraction 0F with LinearEasing
-                    secPosition atFraction 0.23F with LinearEasing
-                    secPosition - 120 atFraction 0.45F with EaseOut
-                    initPosition - 360 atFraction 1F
+                    initAngle atFraction 0.25F with LinearEasing
+                    initAngle + 120F atFraction 0.50F with EaseOut
+                    360F atFraction 1F
                 },
-            )
+                repeatMode = RepeatMode.Restart
+            ),
         )
+        animatedRotation.value
     }
-
 
     val particleColor by transition.animateColor(
         initialValue = colorList.first(),
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime * colorList.size
+                durationMillis = animationTime
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -63,20 +61,18 @@ fun Loader04(
         label = "ColorAnimation"
     )
 
-
     Canvas(
         modifier = modifier
             .size(Dimens.DEFAULT_LOADER_SIZE)
     ) {
-        val outerRadius = size.width / 2
-        val innerRadius = outerRadius * 0.625F
+        val canvasRadius = size.minDimension / 2
 
-        animatedValues.forEach {
-            drawLine(
+        animatedAnglesOfRotation.forEachIndexed { idx, angle ->
+            val index = idx + 1
+            drawCircle(
                 color = particleColor,
-                strokeWidth = size.width * 0.0625F,
-                start = calculatePlotPoint(center, innerRadius, it.value),
-                end = calculatePlotPoint(center, outerRadius, it.value)
+                radius = (index  * canvasRadius) / (32f - index),
+                center = calculatePlotPoint(center, canvasRadius, angle)
             )
         }
     }
