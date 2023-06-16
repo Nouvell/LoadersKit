@@ -12,13 +12,32 @@ import kotlin.math.sin
  * [orbitalRadius] The radius of the circle for which the points are calculated.
  * [degreeAngleFromOrigin] The position of a particle in degrees.
  */
-fun calculatePlotPoint(
-    origin : Offset,
+internal fun calculatePlotPoint(
+    origin: Offset,
     orbitalRadius: Float,
     degreeAngleFromOrigin: Float
 ): Offset {
     val radian = degreeAngleFromOrigin * PI / 180
     val x = orbitalRadius * cos(radian)
     val y = orbitalRadius * sin(radian)
-    return Offset(x.toFloat(), y.toFloat()) +  origin
+    return Offset(x.toFloat(), y.toFloat()) + origin
 }
+
+internal fun calculatePlotPoints(
+    origin: Offset,
+    orbitalRadius: Float,
+    numberOfSides: Int,
+): List<Offset> {
+    val plotPointRadianSeparation = 2 * PI / numberOfSides
+    val plotRadianFromOrigin = List(numberOfSides) { index ->
+        index * plotPointRadianSeparation
+    }
+
+    return plotRadianFromOrigin.map { radian ->
+        val x = orbitalRadius * cos(radian)
+        val y = orbitalRadius * sin(radian)
+        Offset(x.toFloat(), y.toFloat()) + origin
+    }
+}
+
+internal fun lerp(min: Float, max: Float, fraction: Float) = min + (max - min) * fraction

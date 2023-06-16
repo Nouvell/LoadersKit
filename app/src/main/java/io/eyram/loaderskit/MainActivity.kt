@@ -6,16 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import io.eyram.loaders.Loader01
-import io.eyram.loaders.Loader02
 import io.eyram.loaders.Loader04
 import io.eyram.loaders.Loader09
-import io.eyram.loaders.util.Loader10
+import io.eyram.loaders.Loader10
+import io.eyram.loaders.Loader11
+import io.eyram.loaders.Loader12
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -47,6 +47,14 @@ class MainActivity : ComponentActivity() {
 
                     item{
                         Loader10()
+                    }
+
+                    item {
+                        Loader11()
+                    }
+
+                    item {
+                        Loader12()
                     }
                 }
             }
