@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import io.eyram.loaders.Loader01
 import io.eyram.loaders.Loader04
+import io.eyram.loaders.Loader06
 import io.eyram.loaders.Loader09
 import io.eyram.loaders.Loader10
 import io.eyram.loaders.Loader11
@@ -22,11 +24,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            LoadersKitTheme {
+            LoadersKitTheme(darkTheme = true) {
                 LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.White),
+                    modifier = Modifier.fillMaxSize()
+                        .background(Color(0xFF292929)),
                     contentPadding = PaddingValues(24.dp)
                 ) {
                     item {
@@ -55,6 +56,10 @@ class MainActivity : ComponentActivity() {
 
                     item {
                         Loader12()
+                    }
+
+                    item {
+                        Loader06()
                     }
                 }
             }
