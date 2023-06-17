@@ -12,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import io.eyram.loaders.Loader01
+import io.eyram.loaders.Loader02
 import io.eyram.loaders.Loader04
 import io.eyram.loaders.Loader06
+import io.eyram.loaders.Loader08
 import io.eyram.loaders.Loader09
 import io.eyram.loaders.Loader10
 import io.eyram.loaders.Loader11
@@ -33,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     item {
                         Loader01()
                     }
-//
+
 //                    item {
 //                        Loader02()
 //                    }
@@ -60,6 +62,10 @@ class MainActivity : ComponentActivity() {
 
                     item {
                         Loader06()
+                    }
+
+                    item {
+                        Loader08()
                     }
                 }
             }
