@@ -72,7 +72,7 @@ fun Loader11(
     )
 
     Canvas(
-        modifier = Modifier
+        modifier = modifier
             .size(Dimens.DEFAULT_LOADER_SIZE)
     ) {
         val circleRadius = size.minDimension / 2
