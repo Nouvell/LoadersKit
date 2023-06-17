@@ -21,6 +21,8 @@ import io.eyram.loaders.Loader10
 import io.eyram.loaders.Loader11
 import io.eyram.loaders.Loader12
 import io.eyram.loaders.Loader14
+import io.eyram.loaders.Loader15
+import io.eyram.loaders.color.LoaderColor
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -69,9 +71,15 @@ class MainActivity : ComponentActivity() {
                         Loader08()
                     }
 
-
                     item {
                         Loader14()
+                    }
+
+
+                    item {
+                        Loader15(
+                            color = LoaderColor.White
+                        )
                     }
                 }
             }
