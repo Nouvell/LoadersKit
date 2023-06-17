@@ -20,6 +20,7 @@ import io.eyram.loaders.Loader09
 import io.eyram.loaders.Loader10
 import io.eyram.loaders.Loader11
 import io.eyram.loaders.Loader12
+import io.eyram.loaders.Loader14
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -66,6 +67,11 @@ class MainActivity : ComponentActivity() {
 
                     item {
                         Loader08()
+                    }
+
+
+                    item {
+                        Loader14()
                     }
                 }
             }
