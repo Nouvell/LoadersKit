@@ -25,9 +25,10 @@ import io.eyram.loaders.util.calculatePlotPoint
 @Composable
 fun Loader10(
     modifier: Modifier = Modifier,
-    color: LoaderColor = LoaderColor.Rainbow,
+//   dashedPathColor : LoaderColor = LoaderColor.Single(Color.LightGray),
+    atomColor: LoaderColor = LoaderColor.Rainbow,
 ) {
-    val colorList = remember(color) { color.getColors() }
+    val colorList = remember(atomColor) { atomColor.getColors() }
     val transition = rememberInfiniteTransition()
 
     val electronOnePositionDegrees by transition.animateValue(
