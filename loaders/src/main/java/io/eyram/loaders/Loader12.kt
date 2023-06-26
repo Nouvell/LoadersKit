@@ -16,6 +16,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.lerp
 import androidx.compose.ui.unit.dp
 import io.eyram.loaders.color.LoaderColor
+import io.eyram.loaders.util.Dimens.DEFAULT_LOADER_SIZE
 import io.eyram.loaders.util.lerp
 
 @Composable
@@ -53,7 +54,7 @@ fun Loader12(
         label = "ColorAnimation"
     )
 
-    Canvas(modifier = Modifier.size(48.dp)) {
+    Canvas(modifier = modifier.size(DEFAULT_LOADER_SIZE)) {
         val particleOffsets = listOf(
             Offset(0F, size.height / 2),
             Offset(size.width / 2, size.height / 2),
