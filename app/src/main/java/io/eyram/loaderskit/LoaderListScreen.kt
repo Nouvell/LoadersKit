@@ -13,10 +13,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +28,8 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -37,38 +43,43 @@ import io.eyram.loaders.Loader06
 import io.eyram.loaders.Loader08
 import io.eyram.loaders.Loader09
 import io.eyram.loaders.Loader10
+import io.eyram.loaders.Loader11
 import io.eyram.loaders.Loader12
+import io.eyram.loaders.Loader14
 import io.eyram.loaders.Loader15
 import io.eyram.loaders.color.LoaderColor
 import io.eyram.loaderskit.ui.theme.IBMPlexFontFamily
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoaderListScreen(modifier: Modifier = Modifier) {
+
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
+        rememberTopAppBarState()
+    )
+
     Scaffold(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier
+            .fillMaxSize()
+            .nestedScroll(scrollBehavior.nestedScrollConnection),
 
         topBar = {
-            val versionSpanStyle = SpanStyle(
-                fontFamily = IBMPlexFontFamily,
-                fontWeight = FontWeight.Light,
-                fontSize = 12.sp
-            )
-
-            val headerText = buildAnnotatedString {
-                append("Loaders kit")
-                withStyle(versionSpanStyle) {
-                    append(" v1.0.0")
-                }
-            }
-
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .paddingFromBaseline(top = 92.dp, bottom = 40.dp),
-                text = headerText,
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.displayLarge
+            LargeTopAppBar(
+                title = {
+                    Text(
+                        modifier = Modifier.fillMaxWidth(),
+                        text = "Loaders Kit",
+                        textAlign = TextAlign.Center,
+                        style = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp),
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                },
+                colors = TopAppBarDefaults.largeTopAppBarColors(
+                    scrolledContainerColor = MaterialTheme.colorScheme.background
+                ),
+                scrollBehavior = scrollBehavior
             )
         }
     ) {
@@ -187,7 +198,7 @@ val loaderPreviewList = listOf(
     ),
     Loader(
         name = "Bullet Train",
-        animation = { modifier, color -> Loader06(modifier, color) }
+        animation = { modifier, color -> Loader14(modifier, color) }
     ),
     Loader(
         name = "Crop Circles",
@@ -212,5 +223,9 @@ val loaderPreviewList = listOf(
     Loader(
         name = "Rotor",
         animation = { modifier, color -> Loader06(modifier, color) }
+    ),
+    Loader(
+        name = "Bead",
+        animation = { modifier, color -> Loader11(modifier, color) }
     ),
 )
