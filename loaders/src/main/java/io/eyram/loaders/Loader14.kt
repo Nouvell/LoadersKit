@@ -6,6 +6,8 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,8 +17,10 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.geometry.lerp
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.unit.dp
 import io.eyram.loaders.color.LoaderColor
 import io.eyram.loaders.util.Dimens.DEFAULT_LOADER_SIZE
 
@@ -41,7 +45,6 @@ fun Loader14(
         )
     )
 
-
     val sizeFraction by transition.animateFloat(
         initialValue = 0F,
         targetValue = 1F,
@@ -53,7 +56,6 @@ fun Loader14(
             }
         )
     )
-
 
     val particleColor by transition.animateColor(
         initialValue = colorList.first(),
@@ -69,30 +71,22 @@ fun Loader14(
         label = "ColorAnimation"
     )
 
-
-    Canvas(modifier = modifier.size(DEFAULT_LOADER_SIZE)) {
+    Canvas(
+        modifier = modifier
+            .size(DEFAULT_LOADER_SIZE)
+    ) {
         val initParticleSize = size * 0.25F
         val finalParticleSize = Size(initParticleSize.width * 1.5F, initParticleSize.height * 0.5F)
         val particleSize = lerp(initParticleSize, finalParticleSize, sizeFraction)
 
-        val initParticleOffsetX = size.minDimension * 0.25F
-        val particleOffsetY = (size.height / 2) - (particleSize.height / 2)
-
         val boundingBoxStrokeWidth = size.minDimension * 0.0625F
         val boundingBoxSize = Size(size.width - (boundingBoxStrokeWidth), size.height * 0.3125F)
 
-        drawRoundRect(
-            color = particleColor.copy(alpha = 0.65F),
-            topLeft = Offset(
-                boundingBoxStrokeWidth / 2,
-                (size.height / 2) - (boundingBoxSize.height / 2)
-            ),
-            size = boundingBoxSize,
-            cornerRadius = CornerRadius(boundingBoxSize.height * 0.5F),
-            style = Stroke(width = boundingBoxStrokeWidth)
-        )
+        val initParticleOffsetX = (size.minDimension * 0.25F) + boundingBoxStrokeWidth
+        val particleOffsetY = (size.height / 2) - (particleSize.height / 2)
 
-        clipRect {
+
+        clipRect(boundingBoxStrokeWidth / 2) {
             drawRoundRect(
                 topLeft = lerp(
                     Offset(-initParticleOffsetX, particleOffsetY),
@@ -104,5 +98,16 @@ fun Loader14(
                 cornerRadius = CornerRadius(particleSize.height * 0.50F)
             )
         }
+
+        drawRoundRect(
+            color = particleColor,
+            topLeft = Offset(
+                boundingBoxStrokeWidth / 2,
+                (size.height / 2) - (boundingBoxSize.height / 2)
+            ),
+            size = boundingBoxSize,
+            cornerRadius = CornerRadius(boundingBoxSize.height * 0.5F),
+            style = Stroke(width = boundingBoxStrokeWidth)
+        )
     }
 }
