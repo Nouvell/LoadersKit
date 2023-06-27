@@ -49,10 +49,10 @@ fun CircularLoadingAnimation(
                     animation = keyframes {
                         durationMillis = 1004
                         0F at 1
-                        (-120F).toComposeAngle() at 251
-                        (-120F).toComposeAngle() at 252
-                        (120F).toComposeAngle() at 502
-                        (120F).toComposeAngle() at 503
+                        (-120F).toComposeDegreeAngle() at 251
+                        (-120F).toComposeDegreeAngle() at 252
+                        (120F).toComposeDegreeAngle() at 502
+                        (120F).toComposeDegreeAngle() at 503
                         360F at 1003
                         360F at 1004
                     }
