@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'io.eyram.loaderskit'
+    namespace 'io.nouvell.loaderskit'
     compileSdk 33
 
     defaultConfig {
-        applicationId "io.eyram.loaderskit"
+        applicationId "io.nouvell.loaderskit"
         minSdk 22
         targetSdk 33
         versionCode 1
