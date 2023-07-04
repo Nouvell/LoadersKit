@@ -32,7 +32,7 @@ fun Loader08(
         targetValue = 0f,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 1F atFraction 0.27F with EaseInOut
                 0F atFraction 1F
             },
@@ -45,7 +45,7 @@ fun Loader08(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }

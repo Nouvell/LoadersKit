@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.graphics.drawscope.translate
 import io.nouvell.loaders.color.LoaderColor
+import io.nouvell.loaders.util.ANIMATION_TIME
 import io.nouvell.loaders.util.Dimens
 
 @Composable
@@ -157,7 +158,6 @@ private fun Offset.addShift(shift: Float): Offset {
     return Offset(newX, newY)
 }
 
-private const val ANIMATION_TIME = 1_800
 private const val PARTICLE_SIZE_VALUE = 40f
 private val PARTICLE_SIZE = Size(PARTICLE_SIZE_VALUE, PARTICLE_SIZE_VALUE)
 private val CENTER_OFFSET = Offset(PARTICLE_SIZE_VALUE, PARTICLE_SIZE_VALUE) / 2f

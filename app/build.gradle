@@ -5,6 +5,7 @@ plugins {
 
 android {
     namespace 'io.nouvell.loaderskit'
+
     compileSdk 33
 
     defaultConfig {

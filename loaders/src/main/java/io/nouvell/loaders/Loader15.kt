@@ -30,7 +30,7 @@ fun Loader15(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime * colorList.size
+                durationMillis = 1_800 * colorList.size
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -44,7 +44,7 @@ fun Loader15(
         targetValue = 3F,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 1F atFraction 0F with EaseInOutBack
                 1.67F atFraction 0.38F with EaseInOutBack
                 3F atFraction 0.76F
@@ -58,7 +58,7 @@ fun Loader15(
         targetValue = 0F,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 1F atFraction 0.38F with EaseInOut
                 0F atFraction 0.76F
                 0F atFraction 1F
@@ -71,7 +71,7 @@ fun Loader15(
         targetValue = 1.5F,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 1F atFraction 0F with EaseInOutBack
                 1.5F atFraction 0.38F with EaseInOutBack
                 1F atFraction 0.76F with EaseInOutBack
