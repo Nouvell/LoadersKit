@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'io.eyram.loaderskit'
+    namespace 'io.nouvell.loaderskit'
     compileSdk 33
 
     defaultConfig {
-        applicationId "io.eyram.loaderskit"
+        applicationId "io.nouvell.loaderskit"
         minSdk 22
         targetSdk 33
         versionCode 1
@@ -63,6 +63,8 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4"
     debugImplementation "androidx.compose.ui:ui-tooling"
     debugImplementation "androidx.compose.ui:ui-test-manifest"
+
+    implementation "androidx.compose.ui:ui-text-google-fonts:1.4.3"
 
     implementation project(":loaders")
 }
