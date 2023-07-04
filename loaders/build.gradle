@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'io.eyram.loaders'
+    namespace 'io.nouvell.loaders'
     compileSdk 33
 
     defaultConfig {
