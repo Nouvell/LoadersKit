@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.eyram.loaders.CircularLoadingAnimation
 import io.eyram.loaders.Loader02
-import io.eyram.loaders.color.LoaderColor
+import io.eyram.loaders.Loader04
 import io.eyram.loaderskit.ui.theme.LoadersKitTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,10 +34,11 @@ class MainActivity : ComponentActivity() {
                     }
 
                     item {
-                        Loader02(
-                            color = LoaderColor.Black,
-                            modifier = Modifier.size(300.dp)
-                        )
+                        Loader02(Modifier.size(100.dp))
+                    }
+
+                    item{
+                        Loader04(Modifier.size(72.dp))
                     }
                 }
             }
