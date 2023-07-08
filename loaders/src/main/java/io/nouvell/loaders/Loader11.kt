@@ -30,7 +30,7 @@ fun Loader11(
         targetValue = 1F,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 delayMillis = 600
                 1F atFraction 0.25F with LinearEasing
                 1F atFraction 0.75F with LinearEasing
@@ -44,7 +44,7 @@ fun Loader11(
         targetValue = 360F,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 delayMillis = 600
                 120F atFraction 0.25F with LinearEasing
                 240F atFraction 0.50F with LinearEasing
@@ -58,7 +58,7 @@ fun Loader11(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime
+                durationMillis = 1_800
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }

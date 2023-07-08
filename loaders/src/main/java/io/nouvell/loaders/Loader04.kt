@@ -36,7 +36,7 @@ fun Loader04(
             typeConverter = Float.VectorConverter,
             animationSpec = infiniteRepeatable(
                 animation = keyframes {
-                    durationMillis = animationTime
+                    durationMillis = 1_800
                     initPosition atFraction 0F with LinearEasing
                     secPosition atFraction 0.23F with LinearEasing
                     secPosition - 120 atFraction 0.45F with EaseOut
@@ -52,7 +52,7 @@ fun Loader04(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = animationTime * colorList.size
+                durationMillis = 1_800 * colorList.size
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
