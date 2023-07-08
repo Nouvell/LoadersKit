@@ -14,8 +14,6 @@ on:
               distribution: "zulu"
               java-version: "17"
 
-          - name: Print
-            run: echo ${{ env.ORG_GRADLE_PROJECT_versionName }}
             # Builds the release artifacts of the library
           - name: Release build
             run: |
