@@ -36,7 +36,7 @@ fun Loader01(
         targetValue = 360F,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 120F atFraction 0.25F with LinearEasing
                 240F atFraction 0.50F with EaseOut
                 360F atFraction 1F
@@ -49,7 +49,7 @@ fun Loader01(
         targetValue = 72F,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 72F atFraction 0.25F with LinearEasing
                 72F atFraction 0.50F with EaseOut
                 18F atFraction 1F
@@ -62,7 +62,7 @@ fun Loader01(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800 * colorList.size
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -92,3 +92,4 @@ fun Loader01(
 
 
 private const val TAG = "Loader01"
+private const val ANIMATION_TIME = 1_800
