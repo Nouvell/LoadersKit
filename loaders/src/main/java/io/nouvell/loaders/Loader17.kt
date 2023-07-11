@@ -25,7 +25,7 @@ fun Loader17(
     color: LoaderColor = LoaderColor.Rainbow,
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val animatedAnglesOfRotation = listOf(300F, 320F, 340F, 362F, 390F).map { initAngle ->
         val animatedRotation = transition.animateValue(
@@ -34,7 +34,7 @@ fun Loader17(
             typeConverter = Float.VectorConverter,
             animationSpec = infiniteRepeatable(
                 animation = keyframes {
-                    durationMillis = 1_800
+                    durationMillis = ANIMATION_TIME
                     initAngle atFraction 0.25F with LinearEasing
                     initAngle + 120F atFraction 0.50F with EaseOut
                     540F atFraction 1F
@@ -45,7 +45,6 @@ fun Loader17(
         animatedRotation.value
     }
 
-
     val animatedAnglesOfRotation2 = listOf(120F, 140F, 160F, 182F, 210F).map { initAngle ->
         val animatedRotation = transition.animateValue(
             initialValue = 0F,
@@ -53,7 +52,7 @@ fun Loader17(
             typeConverter = Float.VectorConverter,
             animationSpec = infiniteRepeatable(
                 animation = keyframes {
-                    durationMillis = 1_800
+                    durationMillis = ANIMATION_TIME
                     initAngle atFraction 0.25F with LinearEasing
                     initAngle + 120F atFraction 0.50F with EaseOut
                     360F atFraction 1F
@@ -64,13 +63,12 @@ fun Loader17(
         animatedRotation.value
     }
 
-
     val particleColor by transition.animateColor(
         initialValue = colorList.first(),
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -94,7 +92,6 @@ fun Loader17(
             )
         }
 
-
         animatedAnglesOfRotation2.forEachIndexed { idx, angle ->
             val index = idx + 1
             drawCircle(
@@ -105,3 +102,6 @@ fun Loader17(
         }
     }
 }
+
+private const val TAG = "Loader17"
+private const val ANIMATION_TIME = 1_500
