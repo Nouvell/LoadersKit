@@ -34,7 +34,7 @@ fun Loader06(
     color: LoaderColor = LoaderColor.Rainbow,
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val orbitalRotation by transition.animateValue(
         initialValue = 0F,
@@ -42,7 +42,7 @@ fun Loader06(
         typeConverter = Float.VectorConverter,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 120F atFraction .25F with LinearEasing
                 240F atFraction .50F with EaseOut
                 360F atFraction 1F
@@ -55,7 +55,7 @@ fun Loader06(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -104,3 +104,6 @@ fun Loader06(
         drawCircle(color = particleColor, radius = nucleusRadius)
     }
 }
+
+private const val TAG = "Loader06"
+private const val ANIMATION_TIME =  1_100
