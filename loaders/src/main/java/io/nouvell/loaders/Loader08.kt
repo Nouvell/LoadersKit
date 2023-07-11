@@ -25,14 +25,14 @@ fun Loader08(
     color: LoaderColor = LoaderColor.Rainbow
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val particleOffsetFraction by transition.animateFloat(
         initialValue = 1f,
         targetValue = 0f,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 1F atFraction 0.27F with EaseInOut
                 0F atFraction 1F
             },
@@ -45,7 +45,7 @@ fun Loader08(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -80,3 +80,6 @@ fun Loader08(
         }
     }
 }
+
+private const val TAG = "Loader08"
+private const val ANIMATION_TIME = 1_800
