@@ -25,7 +25,7 @@ fun Loader09(
     color: LoaderColor = LoaderColor.Rainbow,
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val animatedAnglesOfRotation = listOf(120F, 140F, 160F, 182F, 210F).map { initAngle ->
         val animatedRotation = transition.animateValue(
@@ -34,7 +34,7 @@ fun Loader09(
             typeConverter = Float.VectorConverter,
             animationSpec = infiniteRepeatable(
                 animation = keyframes {
-                    durationMillis = 1_800
+                    durationMillis = ANIMATION_TIME
                     initAngle atFraction 0.25F with LinearEasing
                     initAngle + 120F atFraction 0.50F with EaseOut
                     360F atFraction 1F
@@ -50,7 +50,7 @@ fun Loader09(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -75,3 +75,6 @@ fun Loader09(
         }
     }
 }
+
+private const val TAG = "Loader09"
+private const val ANIMATION_TIME = 1000
