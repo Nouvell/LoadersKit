@@ -23,14 +23,14 @@ fun Loader15(
     color: LoaderColor = LoaderColor.Rainbow
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}LoaderAnimation")
 
     val particleColor by transition.animateColor(
         initialValue = colorList.first(),
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800 * colorList.size
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -44,7 +44,7 @@ fun Loader15(
         targetValue = 3F,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 1F atFraction 0F with EaseInOutBack
                 1.67F atFraction 0.38F with EaseInOutBack
                 3F atFraction 0.76F
@@ -58,7 +58,7 @@ fun Loader15(
         targetValue = 0F,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 1F atFraction 0.38F with EaseInOut
                 0F atFraction 0.76F
                 0F atFraction 1F
@@ -71,7 +71,7 @@ fun Loader15(
         targetValue = 1.5F,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 1F atFraction 0F with EaseInOutBack
                 1.5F atFraction 0.38F with EaseInOutBack
                 1F atFraction 0.76F with EaseInOutBack
@@ -80,12 +80,14 @@ fun Loader15(
         )
     )
 
-    Canvas(modifier = modifier.size(DEFAULT_LOADER_SIZE)) {
-
+    Canvas(
+        modifier = modifier
+            .size(DEFAULT_LOADER_SIZE)
+    ) {
         val strokeWidth = size.minDimension * 0.0625F
         val strokeRadius = (size.minDimension / 2) * 0.1875F
-
         val circleRadius = (size.minDimension / 2) * 0.25F
+
         drawCircle(
             radius = strokeRadius * strokeScale,
             color = particleColor,
@@ -99,3 +101,6 @@ fun Loader15(
         )
     }
 }
+
+private const val TAG = "Loader15"
+private const val ANIMATION_TIME = 1_800
