@@ -21,21 +21,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LoadersKitTheme(darkTheme = true) {
-                Scaffold { paddingValues ->
-                    Column(
-                        Modifier
-                            .padding(paddingValues)
-                            .fillMaxSize()
-                            .background(Color.White),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-                        Loader07()
-                    }
-                }
+//                Scaffold { paddingValues ->
+//                    Column(
+//                        Modifier
+//                            .padding(paddingValues)
+//                            .fillMaxSize()
+//                            .background(Color.White),
+//                        verticalArrangement = Arrangement.Center,
+//                        horizontalAlignment = Alignment.CenterHorizontally,
+//                    ) {
+//                        Loader07()
+//                    }
+//                }
 //                Surface(Modifier.fillMaxSize()) {
                 //  Loader18(Modifier.padding(32.dp))
-//                    LoaderListScreen()
+                   LoaderListScreen()
                 // Loader17()
 
                 //Loader13()

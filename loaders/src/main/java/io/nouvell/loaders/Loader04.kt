@@ -24,10 +24,9 @@ fun Loader04(
     color: LoaderColor = LoaderColor.Rainbow,
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val initDegreeAngle = List(5) { 270F }
-
     val animatedValues = initDegreeAngle.mapIndexed { index, initPosition ->
         val secPosition = initPosition - (index * 22.5F)
         transition.animateValue(
@@ -36,7 +35,7 @@ fun Loader04(
             typeConverter = Float.VectorConverter,
             animationSpec = infiniteRepeatable(
                 animation = keyframes {
-                    durationMillis = 1_800
+                    durationMillis = ANIMATION_TIME
                     initPosition atFraction 0F with LinearEasing
                     secPosition atFraction 0.23F with LinearEasing
                     secPosition - 120 atFraction 0.45F with EaseOut
@@ -46,13 +45,12 @@ fun Loader04(
         )
     }
 
-
     val particleColor by transition.animateColor(
         initialValue = colorList.first(),
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800 * colorList.size
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -60,7 +58,6 @@ fun Loader04(
         ),
         label = "ColorAnimation"
     )
-
 
     Canvas(
         modifier = modifier
@@ -79,3 +76,6 @@ fun Loader04(
         }
     }
 }
+
+private const val TAG = "Loader04"
+private const val ANIMATION_TIME = 1_250
