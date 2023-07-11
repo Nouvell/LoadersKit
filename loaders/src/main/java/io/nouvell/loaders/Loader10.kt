@@ -28,7 +28,7 @@ fun Loader10(
     color: LoaderColor = LoaderColor.Rainbow,
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val electronOnePositionDegrees by transition.animateValue(
         initialValue = 180F,
@@ -36,7 +36,7 @@ fun Loader10(
         typeConverter = Float.VectorConverter,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 300F atFraction 0.25F with LinearEasing
                 420F atFraction 0.50F with EaseOut
                 540F atFraction 1F
@@ -50,7 +50,7 @@ fun Loader10(
         typeConverter = Float.VectorConverter,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 120F atFraction 0.25F with LinearEasing
                 240F atFraction 0.50F with EaseOut
                 360F atFraction 1F
@@ -64,7 +64,7 @@ fun Loader10(
         typeConverter = Float.VectorConverter,
         animationSpec = infiniteRepeatable(
             keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 210F atFraction 0.25F with LinearEasing
                 330F atFraction 0.50F with EaseOut
                 540F atFraction 1F
@@ -77,7 +77,7 @@ fun Loader10(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -135,3 +135,7 @@ fun Loader10(
         )
     }
 }
+
+
+private const val TAG = "Loader10"
+private const val ANIMATION_TIME = 1_100
