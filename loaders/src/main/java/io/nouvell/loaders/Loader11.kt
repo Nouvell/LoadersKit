@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import io.nouvell.loaders.color.LoaderColor
 import io.nouvell.loaders.util.Dimens
 import io.nouvell.loaders.util.calculatePlotPoints
+import kotlin.math.roundToInt
 
 @Composable
 fun Loader11(
@@ -23,15 +24,15 @@ fun Loader11(
     color: LoaderColor = LoaderColor.Rainbow
 ) {
     val colorList = remember(color) { color.getColors() }
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
     val radiusScale by transition.animateFloat(
         initialValue = 0F,
         targetValue = 1F,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
-                delayMillis = 600
+                durationMillis = ANIMATION_TIME - DELAY_MILLIS
+                delayMillis = DELAY_MILLIS
                 1F atFraction 0.25F with LinearEasing
                 1F atFraction 0.75F with LinearEasing
                 0F atFraction 1F
@@ -44,8 +45,8 @@ fun Loader11(
         targetValue = 360F,
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
-                delayMillis = 600
+                durationMillis =  ANIMATION_TIME - DELAY_MILLIS
+                delayMillis = DELAY_MILLIS
                 120F atFraction 0.25F with LinearEasing
                 240F atFraction 0.50F with LinearEasing
                 360F atFraction 1F
@@ -58,7 +59,7 @@ fun Loader11(
         targetValue = colorList.last(),
         animationSpec = infiniteRepeatable(
             animation = keyframes {
-                durationMillis = 1_800
+                durationMillis = ANIMATION_TIME
                 colorList.forEachIndexed { index, color ->
                     color atFraction ((index + 1).toFloat() / colorList.size)
                 }
@@ -89,3 +90,7 @@ fun Loader11(
         }
     }
 }
+
+private const val TAG = "Loader11"
+private const val ANIMATION_TIME = 1_500
+private val DELAY_MILLIS = (.4F * ANIMATION_TIME).roundToInt()
