@@ -32,6 +32,11 @@ fun Loader07(
 
     // todo remember generated list
     val animatedProperties = List(3) { index ->
+        val startOffset = StartOffset(
+            offsetType = StartOffsetType.FastForward,
+            offsetMillis = (ANIMATION_TIME * index / 3F).roundToInt()
+        )
+
         val radiusScale by transition.animateFloat(
             initialValue = 0.0625F,
             targetValue = 0.0625F,
@@ -48,10 +53,7 @@ fun Loader07(
 
                     0.0625F atFraction 1F
                 },
-                initialStartOffset = StartOffset(
-                    offsetType = StartOffsetType.FastForward,
-                    offsetMillis = (ANIMATION_TIME * index / 3F).roundToInt()
-                )
+                initialStartOffset = startOffset
             )
         )
 
@@ -69,10 +71,7 @@ fun Loader07(
                     0F atFraction 0.667F
                     0F atFraction 1F
                 },
-                initialStartOffset = StartOffset(
-                    offsetType = StartOffsetType.FastForward,
-                    offsetMillis = (ANIMATION_TIME * index / 3F).roundToInt()
-                )
+                initialStartOffset = startOffset
             )
         )
 
@@ -90,10 +89,7 @@ fun Loader07(
                     0.1250F atFraction 0.667F
                     0.1250F atFraction 1F
                 },
-                initialStartOffset = StartOffset(
-                    offsetType = StartOffsetType.FastForward,
-                    offsetMillis = (ANIMATION_TIME * index / 3F).roundToInt()
-                )
+                initialStartOffset = startOffset
             )
         )
 
@@ -114,7 +110,6 @@ fun Loader07(
         ),
         label = "ColorAnimation"
     )
-
 
     Canvas(
         modifier = modifier
