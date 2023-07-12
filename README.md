@@ -55,3 +55,14 @@ Loader02(
     )  
 )
 ```
+
+### Loader Reference
+
+| Loader Name | Preview |
+|-------------|---------|
+| Loader01    | ![Loader 01](https://github.com/Nouvell/LoadersKit/blob/main/resources/loader-01.gif)   |
+|             |         |
+|             |         |
+|             |         |
+|             |         |
+|             |         |
