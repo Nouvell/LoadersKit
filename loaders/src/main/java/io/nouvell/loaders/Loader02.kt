@@ -27,7 +27,7 @@ import io.nouvell.loaders.util.Dimens
 @Composable
 fun Loader02(
     modifier: Modifier = Modifier,
-    color: LoaderColor = LoaderColor.Rainbow,
+    color: LoaderColor = LoaderColor.Black,
 ) {
 
     val colorList = remember(color) { color.getColors() }
@@ -106,42 +106,25 @@ fun Loader02(
     }
 
     Canvas(
-        modifier = modifier
-            .size(Dimens.DEFAULT_LOADER_SIZE)
-            .background(Color.LightGray)
+        modifier = modifier.size(Dimens.DEFAULT_LOADER_SIZE)
     ) {
         val canvasWidth1 = this.size.width
         val canvasHeight1 = this.size.height
-        val innerTangentCircleRadius1 = (minOf(canvasWidth1, canvasHeight1) / 2f) - 0f//PARTICLE_SIZE_VALUE
+        val innerTangentCircleRadius1 = ((minOf(canvasWidth1, canvasHeight1)) / 2f)
 
-        drawCircle(
-            brush = SolidColor(Color.Gray),
-            radius = innerTangentCircleRadius1,
-        )
+        rotate(canvasRotation) {
 
-        rotate(0f) {
-//        rotate(canvasRotation) {
-
-            val particleOffset = 0f//(innerTangentCircleRadius2 * particleOffsetFraction)
+            val particleOffset = (innerTangentCircleRadius1 * particleOffsetFraction) * 0.6f
 
             translate(center.x, center.y) {
-                val canvasWidth2 = this.size.width
-                val canvasHeight2 = this.size.height
-                val innerTangentCircleRadius2 = (minOf(canvasWidth2, canvasHeight2) / 2f) - 0f//PARTICLE_SIZE_VALUE
-
-                drawCircle(
-                    brush = SolidColor(Color.Magenta),
-                    radius = innerTangentCircleRadius2,
-                )
-
                 particleOffsetList.forEachIndexed { _, offset ->
                     val topLeft = offset.addShift(particleOffset)
                     val particleCenter = topLeft + CENTER_OFFSET
 
-                    rotate(0f, particleCenter) {
+                    rotate(particleRotation, particleCenter) {
                         drawRect(
                             brush = SolidColor(particleColor),
-                            topLeft = offset.addShift(particleOffset),
+                            topLeft = topLeft,
                             size = PARTICLE_SIZE
                         )
                     }

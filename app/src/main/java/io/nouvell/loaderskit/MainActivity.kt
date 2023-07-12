@@ -8,11 +8,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import io.nouvell.loaders.Loader02
 import io.nouvell.loaders.Loader07
 import io.nouvell.loaderskit.ui.theme.LoadersKitTheme
 
@@ -30,7 +33,11 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        Loader07()
+//                        Loader07()
+                        Loader02(
+                            modifier = Modifier.size(150.dp)
+                                .background(Color.Yellow)
+                        )
                     }
                 }
 //                Surface(Modifier.fillMaxSize()) {
