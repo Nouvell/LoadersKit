@@ -23,7 +23,7 @@ dependencies {
 ### Usage
 
 Import the loader you want use like in the example below:
-The name of the loader to use can be gleaned from the [Reference Table](https://github.com).
+The name of the loader to use can be gleaned from the [Reference Table](https://github.com/Nouvell/LoadersKit/blob/main/README.md#loader-reference).
 
 ```kotlin
 // import the version of the loader you want to use
