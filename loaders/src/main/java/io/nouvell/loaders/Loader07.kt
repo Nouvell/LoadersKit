@@ -30,6 +30,7 @@ fun Loader07(
     val colorList = remember(color) { color.getColors() }
     val transition = rememberInfiniteTransition("${TAG}InfiniteTransition")
 
+    // todo remember generated list
     val animatedProperties = List(3) { index ->
         val radiusScale by transition.animateFloat(
             initialValue = 0.0625F,
