@@ -34,8 +34,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.nouvell.loaders.Loader01
+import io.nouvell.loaders.Loader02
 import io.nouvell.loaders.Loader04
 import io.nouvell.loaders.Loader06
+import io.nouvell.loaders.Loader07
 import io.nouvell.loaders.Loader08
 import io.nouvell.loaders.Loader09
 import io.nouvell.loaders.Loader10
@@ -136,9 +138,11 @@ fun PreviewCard(
             Text(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .paddingFromBaseline(top = 114.dp, bottom = 108.dp),
+                    .paddingFromBaseline(top = 114.dp, bottom = 108.dp)
+                    .padding(horizontal = 20.dp),
                 text = name,
-                style = MaterialTheme.typography.displaySmall
+                style = MaterialTheme.typography.displaySmall,
+                textAlign = TextAlign.Center
             )
 
             Spacer(
@@ -228,5 +232,14 @@ val loaderPreviewList = listOf(
     Loader(
         name = "Twin Circles",
         animation = { modifier, color -> Loader17(modifier, color) }
+    ),
+
+    Loader(
+        name = "Ripples",
+        animation = { modifier, color -> Loader07(modifier, color) }
+    ),
+    Loader(
+        name = "Kissing Squares",
+        animation = { modifier, color -> Loader02(modifier, color) }
     ),
 )

@@ -25,29 +25,22 @@ class MainActivity : ComponentActivity() {
         setContent {
             LoadersKitTheme(darkTheme = true) {
                 Scaffold { paddingValues ->
-                    Column(
-                        Modifier
-                            .padding(paddingValues)
-                            .fillMaxSize()
-                            .background(Color.White),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ) {
-//                        Loader07()
-                        Loader02(
-                            modifier = Modifier.size(150.dp)
-                                .background(Color.Yellow)
-                        )
-                    }
-                }
-//                Surface(Modifier.fillMaxSize()) {
-                //  Loader18(Modifier.padding(32.dp))
-//                    LoaderListScreen()
-                // Loader17()
+//                    Column(
+//                        Modifier
+//                            .padding(paddingValues)
+//                            .fillMaxSize()
+//                            .background(Color.White),
+//                        verticalArrangement = Arrangement.Center,
+//                        horizontalAlignment = Alignment.CenterHorizontally,
+//                    ) {
+//                        Loader02(
+//                            modifier = Modifier.size(150.dp)
+//                                .background(Color.Yellow)
+//                        )
+//                    }
 
-                //Loader13()
-//                Loader07()
-//                }
+                    LoaderListScreen(modifier = Modifier.padding(paddingValues))
+                }
             }
         }
     }
