@@ -60,21 +60,21 @@ Loader02(
 
 | Loader Name | Preview                                                                                                        |
 |-------------|----------------------------------------------------------------------------------------------------------------|
-| Loader01    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-01.gif" width="100" height="100" /> |
-| Loader02    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-02.gif" width="100" height="100" /> |
+| Loader01    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-01.gif" width="100" height="100" /> |
+| Loader02    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-02.gif" width="100" height="100" /> |
 | Loader03    | Coming Soon                                                                                                    |
-| Loader04    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-04.gif" width="100" height="100" /> |
+| Loader04    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-04.gif" width="100" height="100" /> |
 | Loader05    | Coming Soon                                                                                                    |
-| Loader06    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-06.gif" width="100" height="100" /> |
-| Loader07    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-07.gif" width="100" height="100" /> |
-| Loader08    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-08.gif" width="100" height="100" /> |
-| Loader09    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-09.gif" width="100" height="100" /> |
-| Loader10    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-10.gif" width="100" height="100" /> |
-| Loader11    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-11.gif" width="100" height="100" /> |
-| Loader12    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-12.gif" width="100" height="100" /> |
+| Loader06    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-06.gif" width="100" height="100" /> |
+| Loader07    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-07.gif" width="100" height="100" /> |
+| Loader08    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-08.gif" width="100" height="100" /> |
+| Loader09    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-09.gif" width="100" height="100" /> |
+| Loader10    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-10.gif" width="100" height="100" /> |
+| Loader11    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-11.gif" width="100" height="100" /> |
+| Loader12    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-12.gif" width="100" height="100" /> |
 | Loader13    | Coming Soon                                                                                                    |
-| Loader14    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-14.gif" width="100" height="100" /> |
-| Loader15    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-15.gif" width="100" height="100" /> |
+| Loader14    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-14.gif" width="100" height="100" /> |
+| Loader15    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-15.gif" width="100" height="100" /> |
 | Loader16    | Coming Soon                                                                                                    |
-| Loader17    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/loader-17.gif" width="100" height="100" /> |
+| Loader17    | <img src="https://raw.githubusercontent.com/Nouvell/LoadersKit/main/resources/loader-17.gif" width="100" height="100" /> |
 | Loader18    | Coming Soon                                                                                                    |
