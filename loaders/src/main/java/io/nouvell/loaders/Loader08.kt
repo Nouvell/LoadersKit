@@ -82,4 +82,4 @@ fun Loader08(
 }
 
 private const val TAG = "Loader08"
-private const val ANIMATION_TIME = 1_800
+private const val ANIMATION_TIME = 1_200
