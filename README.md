@@ -1,7 +1,7 @@
 # Loaders Kit
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.nouvell/loaderskit)](https://central.sonatype.com/artifact/io.github.nouvell/loaderskit/1.0.0)  
-[![GitHub license](https://img.shields.io/github/license/nouvell/loaderskit)](https://www.mit-license.org/)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.nouvell/loaderskit.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.nouvell/loaderskit)  
+[![GitHub license](https://img.shields.io/github/license/nouvell/loaderskit?style=flat)](https://www.mit-license.org/)
 
 Loaders Kit is a jetpack compose loader animations library based on [Andrei Iancu's](https://www.figma.com/@iancu)  [Loader Kit 2 / Three Steps](https://www.figma.com/community/file/1113086966127751393/Loaders-Kit-2-%2F-Three-Steps)  
 design specification.
