@@ -1,12 +1,12 @@
-# Loaders Kit 2
+# Loaders Kit
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.nouvell/loaderskit.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.nouvell/loaderskit)  
-[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+[![GitHub license](https://img.shields.io/github/license/nouvell/loaderskit?style=flat)](https://www.mit-license.org/)
 
-Loader Kit 2 is a jetpack compose loader animations library based on [Andrei Iancu's](https://www.figma.com/@iancu)  [Loader Kit 2 / Three Steps](https://www.figma.com/community/file/1113086966127751393/Loaders-Kit-2-%2F-Three-Steps)  
+Loaders Kit is a jetpack compose loader animations library based on [Andrei Iancu's](https://www.figma.com/@iancu)  [Loader Kit 2 / Three Steps](https://www.figma.com/community/file/1113086966127751393/Loaders-Kit-2-%2F-Three-Steps)  
 design specification.
 
-# Using Loaders Kit 2
+# Using Loaders Kit
 
 ### Download
 
