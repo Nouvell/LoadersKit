@@ -45,7 +45,7 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.S01, true)
     signAllPublications()
 
-    coordinates("io.github.nouvell", "loaderskit", "1.0.0")
+    coordinates("io.github.nouvell", "loaderskit", "1.0.1")
 
     pom {
         name = "Loaders Kit"
